@@ -2,48 +2,38 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     :root{
-    --primary-dark: #464646;
-    --secondary: #344C54;
-    --secondary-40: #AEB7BB;
-    --primary-light: #C9B59E;
-    --primary-light-40: #E6DDD3;
-    --primary-light-8: #FBF9F8;
-    scroll-behavior: smooth;
-    }
+    --primary-grey-mid: #464646;
+    --secondary-grey-dark: #242424;
+    --secondary-grey-light: #C3C3C3;
+    --primary-white: #FFFFFF;
     
-    * {
-           box-sizing: border-box;
-      }
-      body {
-    color: var(--primary-dark);
-    font-size: 18px;
-    font-weight: 300;
-    display: grid;
-    grid-template-rows: 48px auto 48px;
-    background: var(--primary-light-8);
+    scroll-behavior: smooth;
 }
-header {
-    position: fixed;
-    z-index: 1;
-    height: 48px;
+    
+* {
+    box-sizing: border-box;
+    font-family: Raleway, Helvetica, sans-serif;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: fantasy;
 }
 
-main {
-    overflow: scroll;
-    line-height: 1.5;
-    display: grid;
-    padding: 72px 24px;
-    height: 100%;
-}
-
-input {
-    line-height: 1.5em;
-    height: 48px;
+header{
+position: fixed;
+width: 100%;
+height: 48px;
 }
 
 h1 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 24px;
+font-size: 24px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: 0.67px;
+color: #ffffff;
+margin:0;
 }
 `
