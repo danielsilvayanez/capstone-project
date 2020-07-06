@@ -1,0 +1,37 @@
+[
+  {
+    "call_number": "No 1",
+    "driver_name": "Fahrer Hans",
+    "start_timestamp": "",
+    "arrival_timestamp": "",
+    "done_timestamp": ""
+  },
+  {
+    "call_number": "No 2",
+    "driver_name": "Fahrer Hans",
+    "start_timestamp": "",
+    "arrival_timestamp": "",
+    "done_timestamp": ""
+  },
+  {
+    "call_number": "No 3",
+    "driver_name": "Fahrer Hans",
+    "start_timestamp": "",
+    "arrival_timestamp": "",
+    "done_timestamp": ""
+  },
+  {
+    "call_number": "No 4",
+    "driver_name": "Fahrer Hans",
+    "start_timestamp": "",
+    "arrival_timestamp": "",
+    "done_timestamp": ""
+  },
+  {
+    "call_number": "No 5",
+    "driver_name": "Fahrer Hans",
+    "start_timestamp": "",
+    "arrival_timestamp": "",
+    "done_timestamp": ""
+  }
+]

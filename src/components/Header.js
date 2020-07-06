@@ -4,7 +4,7 @@ import Logo from '../icons/C&TSLogo.jpg'
 
 let currentDate = new Date()
 const day = String(currentDate.getDate()).padStart(2, '0')
-const month = String(currentDate.getMonth() + 1).padStart(2, '0') //January is 0!
+const month = String(currentDate.getMonth() + 1).padStart(2, '0')
 const year = currentDate.getFullYear()
 
 currentDate = month + '.' + day + '.' + year
@@ -35,6 +35,5 @@ const StyledHeader = styled.header`
     box-shadow: -1px 5px 8px 0 rgba(0, 0, 0, 0.5);
     border: solid 1px #464646;
     background-color: #464646;
-}
   }
 `
