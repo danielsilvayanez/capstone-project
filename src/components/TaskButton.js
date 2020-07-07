@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function TaskButton({ callNo, onClick }) {
-  return <StyledButton onClick={onClick}>{callNo}</StyledButton>
+export default function TaskButton({ callNumber, onClick }) {
+  return <StyledButton onClick={onClick}>{callNumber}</StyledButton>
 }
 
 const StyledButton = styled.button`

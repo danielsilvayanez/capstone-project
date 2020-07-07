@@ -7,7 +7,7 @@ export default function TaskListItem() {
   return (
     <StyledSection>
       {tasks.map((task) => (
-        <TaskButton key={task.call_number} callNo={task.call_number} />
+        <TaskButton key={task.call_number} callNumber={task.call_number} />
       ))}
     </StyledSection>
   )

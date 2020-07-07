@@ -11,6 +11,6 @@ export default {
 export const Text = () => (
   <>
     <GlobalStyles />
-    <TaskButton callNo="Call-No12345" onClick={action('clicked')} />
+    <TaskButton callNumber="CallNo-12345" onClick={action('clicked')} />
   </>
 )

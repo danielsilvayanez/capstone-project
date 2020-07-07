@@ -9,11 +9,11 @@ const year = currentDate.getFullYear()
 
 currentDate = month + '.' + day + '.' + year
 
-export default function Header() {
+export default function Header({ name }) {
   return (
     <StyledHeader>
       <h1>{currentDate}</h1>
-      <h1>Hallo, Fahrer</h1>
+      <h1>Hallo, {name}</h1>
       <img src={ctsLogo} alt="website logo" />
     </StyledHeader>
   )
