@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import ctsLogo from '../icons/ctsLogo.svg'
+import dayjs from 'dayjs'
 
-let currentDate = new Date()
-const day = String(currentDate.getDate()).padStart(2, '0')
-const month = String(currentDate.getMonth() + 1).padStart(2, '0')
-const year = currentDate.getFullYear()
-
-currentDate = month + '.' + day + '.' + year
+const currentDate = dayjs().format('DD.MM.YYYY')
 
 export default function Header({ name }) {
   return (
@@ -20,8 +16,6 @@ export default function Header({ name }) {
 }
 
 const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
   width: 100%;
   height: 48px;
   background-color: var(--primary-grey-mid);

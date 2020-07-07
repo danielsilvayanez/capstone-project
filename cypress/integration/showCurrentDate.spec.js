@@ -1,9 +1,7 @@
-let currentDate = new Date()
-const day = String(currentDate.getDate()).padStart(2, '0')
-const month = String(currentDate.getMonth() + 1).padStart(2, '0')
-const year = currentDate.getFullYear()
+import dayjs from 'dayjs'
 
-currentDate = month + '.' + day + '.' + year
+const currentDate = dayjs().format('DD.MM.YYYY')
+
 describe('Current Date', () => {
   it('should display current date in Header', () => {
     cy.visit('http://localhost:3000/')
