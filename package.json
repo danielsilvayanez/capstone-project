@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "dayjs": "^1.8.29",
     "react": "^16.13.1",
+    "react-accessible-accordion": "^3.3.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
