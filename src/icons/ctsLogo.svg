@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="65px" viewBox="0 0 77 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <defs>
+        <filter x="-20.3%" y="-25.5%" width="140.7%" height="151.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="-1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8" transform="translate(9.000000, 9.000000)">
+            <g id="Logo">
+                <g id="Group-5" filter="url(#filter-1)" fill="#FFFFFF">
+                    <g id="Group-4">
+                        <rect id="Rectangle" x="0" y="0" width="59" height="32"></rect>
+                        <rect id="Rectangle" x="0" y="15" width="59" height="32" rx="16"></rect>
+                    </g>
+                </g>
+                <g id="Group-3" transform="translate(13.000000, 14.000000)" font-family="Helvetica-Bold, Helvetica" font-weight="bold">
+                    <g id="Group-2">
+                        <g id="Group">
+                            <text id="CTS" font-size="16" letter-spacing="0.444444444" fill="#242424">
+                                <tspan x="0" y="15">CTS</tspan>
+                            </text>
+                            <text id="&amp;" font-size="14" letter-spacing="0.388888889" fill="#FE0232">
+                                <tspan x="8" y="16">&amp;</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
