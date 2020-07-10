@@ -15,7 +15,6 @@ export default createGlobalStyle`
 body {
   margin: 0;
   height: 100vh;
-  font-family: fantasy;
 }
 
 h1 {
