@@ -1,13 +1,16 @@
 import React from 'react'
-import TaskListItem from './TaskListItem'
+import TaskButton from './TaskButton'
 import GlobalStyles from './GlobalStyles'
-import styled from 'styled-components'
 import { addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import styled from 'styled-components'
+import { storiesOf } from '@storybook/react'
+
+storiesOf('Components/Header', module)
 
 export default {
-  title: 'TaskListItem',
-  component: TaskListItem,
+  title: 'TaskButton',
+  component: TaskButton,
 }
 
 addDecorator((s) => (
@@ -20,10 +23,8 @@ addDecorator((s) => (
 export const ToStorybook = () => (
   <>
     <StyledButton onClick={action('Clicked!!')}>{'Call-NumberX'}</StyledButton>
-    <TaskListItem />
   </>
 )
-
 ToStorybook.story = {
   name: 'TaskButton',
 }

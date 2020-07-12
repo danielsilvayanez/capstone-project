@@ -1,15 +1,22 @@
 import React from 'react'
 import Header from './Header'
 import GlobalStyles from './GlobalStyles'
+import { addDecorator } from '@storybook/react'
 
 export default {
   title: 'Header',
   component: Header,
 }
 
-export const ToStorybook = () => (
+addDecorator((s) => (
   <>
     <GlobalStyles />
+    {s()}
+  </>
+))
+
+export const ToStorybook = () => (
+  <>
     <Header />
   </>
 )
