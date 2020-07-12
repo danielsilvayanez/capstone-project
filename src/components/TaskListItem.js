@@ -16,19 +16,23 @@ export default function TaskListItem() {
   function setTimestamp(status) {
     if (status === 'start') {
       setStart(timeStamp)
-      alert('Startzeit wird gespeichert, Gute Fahrt!')
+      alert('Los geht´s, Gute Fahrt!')
     } else if (status === 'arrival') {
       setArrival(timeStamp)
-      alert('Ankunftszeit wird gespeichert. Viel Spaß beim Kunden!')
+      alert('Angekommen. Viel Erfolg beim Kunden!')
     } else {
       setDone(timeStamp)
-      alert('Geschafft!! Glückwunsch.')
+      alert('Du hast es geschafft!! Glückwunsch.')
     }
   }
 
   return (
     <StyledStatusSection>
-      <StyledButton primary onClick={() => setTimestamp('start')}>
+      <StyledButton
+        onClick={() => {
+          setTimestamp('start')
+        }}
+      >
         Start
       </StyledButton>
       <StyledButton onClick={() => setTimestamp('arrival')}>
@@ -52,7 +56,7 @@ const StyledStatusSection = styled.section`
 const StyledButton = styled.button`
   width: 33.3%;
   height: 51px;
-  background-color: ${(props) => (props.primary ? 'white' : 'none')};
+  background: ${(props) => (props.primary ? 'green' : 'white')};
   border: 1px solid var(--secondary-grey-dark);
   }
 `
