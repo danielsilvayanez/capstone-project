@@ -9,6 +9,7 @@ export default function TaskList() {
     <StyledSection>
       {tasks.map((task) => (
         <StyledNavLink
+          data-testid="call_number"
           key={task.call_number}
           to={`/taskpagedetails/${task.call_number}`}
         >
