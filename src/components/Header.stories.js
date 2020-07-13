@@ -8,10 +8,10 @@ export default {
   component: Header,
 }
 
-addDecorator((s) => (
+addDecorator((storyFn) => (
   <>
     <GlobalStyles />
-    {s()}
+    {storyFn()}
   </>
 ))
 
