@@ -8,11 +8,6 @@ export default function TaskListItem() {
   const [arrival, setArrival] = useState('')
   const [done, setDone] = useState('')
 
-  //Here LocalStorage could be used to save each timestamp changes!
-  /*useEffect(() => {
-    console.log(start)
-  }, [start])*/
-
   function setTimestamp(status) {
     if (status === 'start') {
       setStart(timeStamp)
@@ -29,16 +24,25 @@ export default function TaskListItem() {
   return (
     <StyledStatusSection>
       <StyledButton
+        className={start ? 'active' : ''}
         onClick={() => {
           setTimestamp('start')
         }}
       >
         Start
       </StyledButton>
-      <StyledButton onClick={() => setTimestamp('arrival')}>
+      <StyledButton
+        className={arrival ? 'active' : ''}
+        onClick={() => setTimestamp('arrival')}
+      >
         Ankunft
       </StyledButton>
-      <StyledButton onClick={() => setTimestamp('done')}>Erledigt</StyledButton>
+      <StyledButton
+        className={done ? 'active' : ''}
+        onClick={() => setTimestamp('done')}
+      >
+        Erledigt
+      </StyledButton>
       <StyledDiv>
         <div>{start}</div>
         <div>{arrival}</div>
@@ -56,10 +60,14 @@ const StyledStatusSection = styled.section`
 const StyledButton = styled.button`
   width: 33.3%;
   height: 51px;
-  background: ${(props) => (props.primary ? 'green' : 'white')};
+  background: var(--primary-white);
   border: 1px solid var(--secondary-grey-dark);
+
+  &.active {
+    color: limegreen;
   }
 `
+
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;

@@ -25,7 +25,7 @@ export const ToStorybook = () => (
 )
 
 ToStorybook.story = {
-  name: 'TaskButton',
+  name: 'TaskListItem',
 }
 
 const StyledButton = styled.button`
