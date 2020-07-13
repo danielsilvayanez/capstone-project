@@ -13,10 +13,10 @@ export default {
   component: TaskButton,
 }
 
-addDecorator((s) => (
+addDecorator((storyFn) => (
   <>
     <GlobalStyles />
-    {s()}
+    {storyFn()}
   </>
 ))
 
