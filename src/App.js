@@ -1,6 +1,9 @@
 import React from 'react'
 import Header from './components/Header'
-import TaskListItem from './components/TaskListItem'
+import Dashboard from './pages/Dashboard'
+import TaskPageDetails from './/pages/TaskPageDetails'
+import NotFound from './pages/NotFound'
+import { Route, Switch } from 'react-router-dom'
 
 function App() {
   const driver = 'Will Smith'
@@ -8,7 +11,15 @@ function App() {
   return (
     <>
       <Header name={driver} />
-      <TaskListItem />
+      <Switch>
+        <Route path="/dashboard" component={Dashboard} />
+        <Route
+          path="/taskpagedetails/:callNumber"
+          component={TaskPageDetails}
+        />
+        <Route exact path="/" component={Dashboard} />
+        <Route component={NotFound} />
+      </Switch>
     </>
   )
 }

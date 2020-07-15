@@ -1,37 +1,27 @@
 [
   {
-    "call_number": "Call-Number 1",
+    "call_number": "Call-Number1",
     "driver_name": "Fahrer Hans",
-    "start_timestamp": "",
-    "arrival_timestamp": "",
-    "done_timestamp": ""
+    "date": "9.7.2020"
   },
   {
-    "call_number": "Call-Number 2",
+    "call_number": "Call-Number2",
     "driver_name": "Fahrer Hans",
-    "start_timestamp": "",
-    "arrival_timestamp": "",
-    "done_timestamp": ""
+    "date": "9.7.2020"
   },
   {
-    "call_number": "Call-Number 3",
+    "call_number": "Call-Number3",
     "driver_name": "Fahrer Hans",
-    "start_timestamp": "",
-    "arrival_timestamp": "",
-    "done_timestamp": ""
+    "date": "9.7.2020"
   },
   {
-    "call_number": "Call-Number 4",
+    "call_number": "Call-Number4",
     "driver_name": "Fahrer Hans",
-    "start_timestamp": "",
-    "arrival_timestamp": "",
-    "done_timestamp": ""
+    "date": "9.7.2020"
   },
   {
-    "call_number": "Call-Number 5",
+    "call_number": "Call-Number5",
     "driver_name": "Fahrer Hans",
-    "start_timestamp": "",
-    "arrival_timestamp": "",
-    "done_timestamp": ""
+    "date": "9.7.2020"
   }
 ]

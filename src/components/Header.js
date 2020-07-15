@@ -9,7 +9,7 @@ export default function Header({ name }) {
   return (
     <StyledHeader>
       <h1>{currentDate}</h1>
-      <h1>Hallo, {name}</h1>
+      <h2>Hallo, {name}</h2>
       <img src={ctsLogo} alt="website logo" />
     </StyledHeader>
   )
@@ -23,6 +23,11 @@ const StyledHeader = styled.header`
   height: 100px;
   box-shadow: 0 2px 5px 3px grey;
 
+  h1,
+  h2 {
+    margin: 0;
+    color: var(--primary-white);
+  }
   img {
     position: fixed;
     top: -8px;
