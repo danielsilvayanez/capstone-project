@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/user-event": "^7.1.2",
     "dayjs": "^1.8.29",
     "pretty": "^2.0.0",
     "react": "^16.13.1",
@@ -46,6 +45,7 @@
     "@storybook/preset-create-react-app": "^3.1.2",
     "@storybook/react": "^5.3.19",
     "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
     "cypress": "^4.9.0"
   }
 }
