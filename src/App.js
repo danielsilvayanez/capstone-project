@@ -21,7 +21,7 @@ function App() {
           />
           <Route
             path="/taskpagedetails/:callNumber"
-            component={TaskPageDetails}
+            component={() => <TaskPageDetails tasks={tasks} />}
           />
           <Route exact path="/" component={() => <Dashboard tasks={tasks} />} />
           <Route component={NotFound} />

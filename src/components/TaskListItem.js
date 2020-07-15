@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import dayjs from 'dayjs'
 import MemoArea from '../components/MemoArea'
 
-export default function TaskListItem() {
+export default function TaskListItem(tasks) {
   let timeStamp = dayjs().format('HH:mm')
   const [start, setStart] = useState('')
   const [arrival, setArrival] = useState('')
@@ -43,7 +43,7 @@ export default function TaskListItem() {
     </StyledStatusSection>
   )
 
-  function setTimestamp(status) {
+  function setTimestamp(status, callNumber) {
     if (status === 'start') {
       setStart(timeStamp)
     } else if (status === 'arrival') {

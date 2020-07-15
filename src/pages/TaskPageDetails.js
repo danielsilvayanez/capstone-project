@@ -4,13 +4,13 @@ import TaskButton from '../components/TaskButton'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-export default function TaskPageDetails() {
+export default function TaskPageDetails(tasks) {
   const { callNumber } = useParams()
 
   return (
     <StyledDiv>
       <TaskButton callNumber={callNumber}>{callNumber}</TaskButton>
-      <TaskListItem />
+      <TaskListItem tasks={tasks} />
     </StyledDiv>
   )
 }
