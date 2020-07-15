@@ -1,39 +1,44 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import tasks from './tasks.json'
-import { NavLink } from 'react-router-dom'
 import TaskButton from '../components/TaskButton'
 
-export default function TaskList() {
+export default function TaskList({ tasks }) {
+  const history = useHistory()
+
   return (
-    <StyledSection>
+    <StyledUl>
       {tasks.map((task) => (
-        <StyledNavLink
-          data-testid="call_number"
-          key={task.call_number}
-          to={`/taskpagedetails/${task.call_number}`}
-        >
-          <TaskButton callNumber={task.call_number}>
+        <li key={task.call_number} data-testid="call_number-test">
+          <TaskButton
+            onClick={() => setPathTo(`/taskpagedetails/${task.call_number}`)}
+            key={task.call_number}
+            callNumber={task.call_number}
+            data-testid="button-test-single"
+          >
             {task.call_number}
           </TaskButton>
-        </StyledNavLink>
+        </li>
       ))}
-    </StyledSection>
+    </StyledUl>
   )
+  function setPathTo(path) {
+    history.push(path)
+  }
 }
 
-const StyledSection = styled.section`
+const StyledUl = styled.ul`
   margin-top: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   height: 100vh;
   width: 100%;
-`
-const StyledNavLink = styled(NavLink)`
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  width: 100%;
-  color: var(--primary-white);
+  list-style-type: none;
+
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
 `
