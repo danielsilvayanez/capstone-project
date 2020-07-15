@@ -3,15 +3,9 @@ import styled from 'styled-components'
 
 export default function TaskButton({ callNumber, onClick }) {
   return (
-    <>
-      <StyledButton
-        data-testid="button-test-single"
-        text={callNumber}
-        onClick={onClick}
-      >
-        {callNumber}
-      </StyledButton>
-    </>
+    <StyledButton data-testid="button-test" text={callNumber} onClick={onClick}>
+      {callNumber}
+    </StyledButton>
   )
 }
 

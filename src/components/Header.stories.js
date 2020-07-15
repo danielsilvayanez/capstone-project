@@ -15,11 +15,7 @@ addDecorator((storyFn) => (
   </>
 ))
 
-export const ToStorybook = () => (
-  <>
-    <Header />
-  </>
-)
+export const ToStorybook = () => <Header />
 
 ToStorybook.story = {
   name: 'Header',
