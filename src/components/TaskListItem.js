@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
+import MemoArea from '../components/MemoArea'
 
 export default function TaskListItem() {
   let timeStamp = dayjs().format('HH:mm')
@@ -8,22 +9,10 @@ export default function TaskListItem() {
   const [arrival, setArrival] = useState('')
   const [done, setDone] = useState('')
 
-  function setTimestamp(status) {
-    if (status === 'start') {
-      setStart(timeStamp)
-      alert('Los geht´s, Gute Fahrt!')
-    } else if (status === 'arrival') {
-      setArrival(timeStamp)
-      alert('Angekommen. Viel Erfolg beim Kunden!')
-    } else {
-      setDone(timeStamp)
-      alert('Du hast es geschafft!! Glückwunsch.')
-    }
-  }
-
   return (
     <StyledStatusSection>
       <StyledButton
+        data-testid="button-test"
         className={start ? 'active' : ''}
         onClick={() => {
           setTimestamp('start')
@@ -32,24 +21,37 @@ export default function TaskListItem() {
         Start
       </StyledButton>
       <StyledButton
+        data-testid="button-test"
         className={arrival ? 'active' : ''}
         onClick={() => setTimestamp('arrival')}
       >
         Ankunft
       </StyledButton>
       <StyledButton
+        data-testid="button-test"
         className={done ? 'active' : ''}
         onClick={() => setTimestamp('done')}
       >
         Erledigt
       </StyledButton>
       <StyledDiv>
-        <div>{start}</div>
-        <div>{arrival}</div>
-        <div>{done}</div>
+        <div data-testid="div-test">{start}</div>
+        <div data-testid="div-test">{arrival}</div>
+        <div data-testid="div-test">{done}</div>
       </StyledDiv>
+      <MemoArea />
     </StyledStatusSection>
   )
+
+  function setTimestamp(status) {
+    if (status === 'start') {
+      setStart(timeStamp)
+    } else if (status === 'arrival') {
+      setArrival(timeStamp)
+    } else {
+      setDone(timeStamp)
+    }
+  }
 }
 
 const StyledStatusSection = styled.section`
