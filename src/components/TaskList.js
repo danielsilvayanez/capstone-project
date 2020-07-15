@@ -12,12 +12,9 @@ export default function TaskList({ tasks }) {
         <li key={task.call_number} data-testid="call_number-test">
           <TaskButton
             onClick={() => setPathTo(`/taskpagedetails/${task.call_number}`)}
-            key={task.call_number}
             callNumber={task.call_number}
-            data-testid="button-test-single"
-          >
-            {task.call_number}
-          </TaskButton>
+            startNumber={task.start}
+          />
         </li>
       ))}
     </StyledUl>
