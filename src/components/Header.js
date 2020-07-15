@@ -17,10 +17,9 @@ export default function Header({ name }) {
 
 const StyledHeader = styled.header`
   width: 100%;
-  height: 48px;
+  height: 100px;
   background-color: var(--primary-grey-mid);
   padding: 10px;
-  height: 100px;
   box-shadow: 0 2px 5px 3px grey;
 
   h1,
