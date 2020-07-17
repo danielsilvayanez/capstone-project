@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 import MemoForm from '../components/MemoForm'
 
 export default function TaskListItem({ setTask, task }) {
   let timeStamp = dayjs().format('HH:mm')
-  const [start, setStart] = useState('')
-  const [arrival, setArrival] = useState('')
-  const [done, setDone] = useState('')
+
   return (
     <StyledStatusSection>
       <StyledButton
         data-testid="button-test"
-        className={start ? 'active' : ''}
+        className={task.start ? 'active' : ''}
         onClick={() => {
           setTimestamp('start')
         }}
@@ -21,24 +19,24 @@ export default function TaskListItem({ setTask, task }) {
       </StyledButton>
       <StyledButton
         data-testid="button-test"
-        className={arrival ? 'active' : ''}
+        className={task.arrival ? 'active' : ''}
         onClick={() => setTimestamp('arrival')}
       >
         Ankunft
       </StyledButton>
       <StyledButton
         data-testid="button-test"
-        className={done ? 'active' : ''}
+        className={task.done ? 'active' : ''}
         onClick={() => setTimestamp('done')}
       >
         Erledigt
       </StyledButton>
       <StyledDiv>
-        <div data-testid="div-test">{start}</div>
-        <div data-testid="div-test">{arrival}</div>
-        <div data-testid="div-test">{done}</div>
+        <div data-testid="div-test">{task.start}</div>
+        <div data-testid="div-test">{task.arrival}</div>
+        <div data-testid="div-test">{task.done}</div>
       </StyledDiv>
-      <MemoForm task={task} memos={task.memos} addMemo={addMemo} />
+      <MemoForm memos={task.memos} addMemo={addMemo} />
     </StyledStatusSection>
   )
 
@@ -48,14 +46,10 @@ export default function TaskListItem({ setTask, task }) {
     setTask(newTask)
   }
 
-  function setTimestamp(status, callNumber) {
-    if (status === 'start') {
-      setStart(timeStamp)
-    } else if (status === 'arrival') {
-      setArrival(timeStamp)
-    } else {
-      setDone(timeStamp)
-    }
+  function setTimestamp(status) {
+    const newValue = timeStamp
+    const newTask = { ...task, [status]: newValue }
+    setTask(newTask)
   }
 }
 

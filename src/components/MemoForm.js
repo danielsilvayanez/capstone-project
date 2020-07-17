@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export default function MemoArea({ task, memos, addMemo }) {
+export default function MemoArea({ memos, addMemo }) {
   const [memo, setMemo] = useState('')
 
   return (
@@ -31,8 +31,8 @@ export default function MemoArea({ task, memos, addMemo }) {
 
       <p>Notizen</p>
       <ul>
-        {memos.map((memo) => (
-          <li key={task.call_number}>{memo}</li>
+        {memos.map((memo, index) => (
+          <li key={index}>{memo}</li>
         ))}
       </ul>
     </StyledSection>
@@ -40,7 +40,9 @@ export default function MemoArea({ task, memos, addMemo }) {
 
   function handleSubmit(event) {
     event.preventDefault()
+    setMemo(event.target.name.value)
     addMemo(event.target.name.value)
+    event.target.memo.value = ''
   }
 }
 
