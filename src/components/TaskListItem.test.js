@@ -1,4 +1,3 @@
-//taskListItem.test.js
 import React from 'react'
 import { render, screen, getAllByTestId } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
@@ -20,12 +19,9 @@ describe('TaskListItem.js test', () => {
   it('Should click on 3 buttons and check for timestamp', () => {
     userEvent.click(screen.getByText('Start'))
     expect(screen.getAllByTestId('div-test')[0].textContent).toBe(timeStamp)
-    //screen.debug(screen.getAllByTestId('div-test')[0].innerText)
     userEvent.click(screen.getByText('Ankunft'))
     expect(screen.getAllByTestId('div-test')[1].textContent).toBe(timeStamp)
-    //screen.debug(screen.getAllByTestId('div-test')[1].innerText)
     userEvent.click(screen.getByText('Erledigt'))
     expect(screen.getAllByTestId('div-test')[2].textContent).toBe(timeStamp)
-    //screen.debug(screen.getAllByTestId('div-test')[2].innerText)
   })
 })
