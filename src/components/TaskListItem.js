@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
-import MemoArea from '../components/MemoArea'
+import MemoForm from '../components/MemoForm'
 
-export default function TaskListItem(tasks) {
+export default function TaskListItem({ setTask, task }) {
   let timeStamp = dayjs().format('HH:mm')
   const [start, setStart] = useState('')
   const [arrival, setArrival] = useState('')
   const [done, setDone] = useState('')
-
   return (
     <StyledStatusSection>
       <StyledButton
@@ -39,9 +38,15 @@ export default function TaskListItem(tasks) {
         <div data-testid="div-test">{arrival}</div>
         <div data-testid="div-test">{done}</div>
       </StyledDiv>
-      <MemoArea />
+      <MemoForm task={task} memos={task.memos} addMemo={addMemo} />
     </StyledStatusSection>
   )
+
+  function addMemo(newMemo) {
+    const newMemos = [...task.memos, newMemo]
+    const newTask = { ...task, memos: newMemos }
+    setTask(newTask)
+  }
 
   function setTimestamp(status, callNumber) {
     if (status === 'start') {
