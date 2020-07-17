@@ -1,13 +1,17 @@
+//taskbutton.test
 import React from 'react'
 import TaskButton from './TaskButton'
 import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
+const mockCallback = jest.fn()
+
+beforeEach(() => {
+  mockCallback.mockReset()
+  render(<TaskButton callNumber={'Call-Number'} onClick={mockCallback} />)
+})
+
 describe('TaskButton', () => {
-  const mockCallback = jest.fn()
-  beforeEach(() => {
-    render(<TaskButton callNumber={'Call-Number'} onClick={mockCallback} />)
-  })
   it('shows a task number', () => {
     expect(screen.getByRole('button'))
   })
