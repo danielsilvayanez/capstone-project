@@ -1,3 +1,5 @@
+//header.test
+
 import React from 'react'
 import Header from './Header'
 import { render, screen } from '@testing-library/react'
@@ -11,7 +13,7 @@ beforeEach(() => {
   render(<Header />)
 })
 
-describe('Header.js test', () => {
+describe('Header.js testing', () => {
   it('H1 displays current date', () => {
     expect(screen.queryByText(currentDate).tagName).toBe('H1')
   })
