@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import TaskPageDetails from './/pages/TaskPageDetails'
@@ -9,6 +9,9 @@ import defaultTasks from './tasks.json'
 
 function App() {
   const driver = 'Will Smith'
+  const [taskList, setTasklist] = useState(
+    JSON.parse(localStorage.getItem('tasklist')) || defaultTasks
+  )
 
   return (
     <AppGrid>
@@ -17,16 +20,16 @@ function App() {
         <Switch>
           <Route
             path="/dashboard"
-            component={() => <Dashboard tasks={defaultTasks} />}
+            component={() => <Dashboard tasks={taskList} />}
           />
           <Route
             path="/taskpagedetails/:callNumber"
-            component={() => <TaskPageDetails tasks={defaultTasks} />}
+            component={() => <TaskPageDetails tasks={taskList} />}
           />
           <Route
             exact
             path="/"
-            component={() => <Dashboard tasks={defaultTasks} />}
+            component={() => <Dashboard tasks={taskList} />}
           />
           <Route component={NotFound} />
         </Switch>
