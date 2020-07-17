@@ -12,10 +12,11 @@ jest.mock('react-router-dom', () => ({
   }),
 }))
 
+beforeEach(() => {
+  render(<TaskList tasks={tasks_mock} />)
+})
+
 describe('TaskList', () => {
-  beforeEach(() => {
-    render(<TaskList tasks={tasks_mock} />)
-  })
   it('should render 5 Call-Numbers', () => {
     expect(screen.getAllByText('Call-Number', { exact: false })).toHaveLength(
       tasks_mock.length
