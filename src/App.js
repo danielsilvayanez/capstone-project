@@ -5,7 +5,7 @@ import TaskPageDetails from './/pages/TaskPageDetails'
 import NotFound from './pages/NotFound'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import tasks from './components/tasks.json'
+import defaultTasks from './tasks.json'
 
 function App() {
   const driver = 'Will Smith'
@@ -17,13 +17,17 @@ function App() {
         <Switch>
           <Route
             path="/dashboard"
-            component={() => <Dashboard tasks={tasks} />}
+            component={() => <Dashboard tasks={defaultTasks} />}
           />
           <Route
             path="/taskpagedetails/:callNumber"
-            component={() => <TaskPageDetails tasks={tasks} />}
+            component={() => <TaskPageDetails tasks={defaultTasks} />}
           />
-          <Route exact path="/" component={() => <Dashboard tasks={tasks} />} />
+          <Route
+            exact
+            path="/"
+            component={() => <Dashboard tasks={defaultTasks} />}
+          />
           <Route component={NotFound} />
         </Switch>
       </StyledMain>
