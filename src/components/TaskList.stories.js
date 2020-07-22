@@ -17,7 +17,7 @@ export default {
   component: TaskList,
 }
 
-export const withExampleData = () => (
+export const Tasklist = () => (
   <StyledSection>
     <StyledButton
       key={'1'}
