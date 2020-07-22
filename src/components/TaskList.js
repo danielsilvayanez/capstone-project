@@ -12,8 +12,7 @@ export default function TaskList({ tasks }) {
         <li key={task.call_number} data-testid="call_number-test">
           <TaskButton
             onClick={() => setPathTo(`/taskpagedetails/${task.call_number}`)}
-            callNumber={task.call_number}
-            startNumber={task.start}
+            btnText={task.call_number}
           />
         </li>
       ))}
