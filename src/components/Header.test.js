@@ -13,7 +13,7 @@ beforeEach(() => {
   render(<Header />)
 })
 
-describe('Header.js testing', () => {
+describe('Header.js - test', () => {
   it('H1 displays current date', () => {
     expect(screen.queryByText(currentDate).tagName).toBe('H1')
   })
