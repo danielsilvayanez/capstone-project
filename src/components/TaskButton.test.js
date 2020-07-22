@@ -8,10 +8,10 @@ const mockCallback = jest.fn()
 
 beforeEach(() => {
   mockCallback.mockReset()
-  render(<TaskButton callNumber={'Call-Number'} onClick={mockCallback} />)
+  render(<TaskButton btnText={'Call-Number'} onClick={mockCallback} />)
 })
 
-describe('TaskButton', () => {
+describe('TaskButton test', () => {
   it('shows a task number', () => {
     expect(screen.getByRole('button'))
   })

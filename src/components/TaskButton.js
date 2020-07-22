@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function TaskButton({ callNumber, onClick }) {
+export default function TaskButton({ btnText, onClick }) {
   return (
-    <StyledButton data-testid="button-test" text={callNumber} onClick={onClick}>
-      {callNumber}
+    <StyledButton data-testid="button-test" onClick={onClick}>
+      {btnText}
     </StyledButton>
   )
 }
