@@ -27,10 +27,8 @@ export default function MemoArea({ task, updateTaskList }) {
             autoFocus
             required
           />
-          {memo.length <= 3 ? (
-            <StyledError>Please use at least 3 characters</StyledError>
-          ) : (
-            <StyledError>Max characters 77 </StyledError>
+          {memo.length <= 3 && (
+            <StyledError>Mindestens 3 Zeichen eingeben!</StyledError>
           )}
         </label>
         <button type="submit"> speichern </button>
@@ -53,6 +51,7 @@ export default function MemoArea({ task, updateTaskList }) {
 const StyledSection = styled.section`
   margin-top: 10px;
   padding: 10px;
+  width: 90%;
 
   form {
     display: flex;
