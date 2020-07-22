@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import MemoList from '../components/MemoList'
 
-export default function MemoArea({ memos, addMemo }) {
+export default function MemoArea({ task, updateTaskList }) {
   const [memo, setMemo] = useState('')
+
+  useEffect(() => {
+    if (task) {
+      setMemo(task.memos)
+    }
+  }, [task])
 
   return (
     <StyledSection>
@@ -10,6 +17,7 @@ export default function MemoArea({ memos, addMemo }) {
         <label htmlFor="name">
           Notiz:
           <input
+            data-testid="input-test"
             id="name"
             name="memo"
             value={memo.value}
@@ -19,29 +27,25 @@ export default function MemoArea({ memos, addMemo }) {
             autoFocus
             required
           />
-          {memo.length <= 3 && (
+          {memo.length <= 3 ? (
             <StyledError>Please use at least 3 characters</StyledError>
-          )}
-          {memo.length >= 70 && (
-            <div>Please use a maximum of 70 characters</div>
+          ) : (
+            <StyledError>Max characters 77 </StyledError>
           )}
         </label>
         <button type="submit"> speichern </button>
       </form>
-
-      <p>Notizen</p>
-      <ul>
-        {memos.map((memo, index) => (
-          <li key={index}>{memo}</li>
-        ))}
-      </ul>
+      <MemoList task={task} />
     </StyledSection>
   )
 
   function handleSubmit(event) {
     event.preventDefault()
-    setMemo(event.target.name.value)
-    addMemo(event.target.name.value)
+    const tempMemo = event.target.memo.value
+    setMemo(tempMemo)
+    const newMemos = [...task.memos, tempMemo]
+    const newTask = { ...task, memos: newMemos }
+    updateTaskList(newTask, task.call_number)
     event.target.memo.value = ''
   }
 }
@@ -74,13 +78,14 @@ const StyledSection = styled.section`
       margin-top: 10px;
       border: 1px solid black;
     }
-    ul {
-      margin: 0px;
-    }
   }
 `
 const StyledError = styled.div`
   color: var(--tertiary);
   font-size: 0.8rem;
   font-weight: 300;
+`
+const StyledLi = styled.li`
+  word-wrap: break-word;
+  width: 10%px;
 `

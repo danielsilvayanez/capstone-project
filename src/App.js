@@ -9,9 +9,21 @@ import defaultTasks from './tasks.json'
 
 function App() {
   const driver = 'Will Smith'
-  const [taskList, setTasklist] = useState(
+  const [taskList, setTaskList] = useState(
     JSON.parse(localStorage.getItem('tasklist')) || defaultTasks
   )
+
+  function updateTaskList(task, callNumber) {
+    if (task) {
+      let list = [...taskList]
+      const index = taskList.findIndex(
+        (task) => task.call_number === callNumber
+      )
+      list[index] = task
+      setTaskList(list)
+      localStorage.setItem('tasklist', JSON.stringify(list))
+    }
+  }
 
   return (
     <AppGrid>
@@ -24,7 +36,12 @@ function App() {
           />
           <Route
             path="/taskpagedetails/:callNumber"
-            component={() => <TaskPageDetails tasks={taskList} />}
+            component={() => (
+              <TaskPageDetails
+                updateTaskList={updateTaskList}
+                tasks={taskList}
+              />
+            )}
           />
           <Route
             exact
