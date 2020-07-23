@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function TaskButton({ callNumber }) {
+export default function TaskButton({ btnText, onClick }) {
   return (
-    <>
-      <StyledButton>{callNumber}</StyledButton>
-    </>
+    <StyledButton data-testid="button-test" onClick={onClick}>
+      {btnText}
+    </StyledButton>
   )
 }
 
 const StyledButton = styled.button`
   width: 90%;
   height: 80px;
-  background-color: #464646;
+  background-color: var(--primary-grey-mid);
   color: var(--primary-white);
   margin-top: 5px;
   font-size: 2em;
