@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
   const [startTime, setStartTime] = useState('')
-  const [ArrivalTime, setArrivalTime] = useState('')
-  const [DoneTime, setDoneTime] = useState('')
+  const [arrivalTime, setArrivalTime] = useState('')
+  const [doneTime, setDoneTime] = useState('')
 
   useEffect(() => {
     if (task) {
@@ -44,22 +44,22 @@ export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
         </StyledButton>
         <StyledButton
           data-testid="button-test-arrival"
-          className={ArrivalTime ? 'active' : ''}
+          className={arrivalTime ? 'active' : ''}
           onClick={() => onClickStartTime('arrival')}
         >
           Ankunft
         </StyledButton>
         <StyledButton
           data-testid="button-test-done"
-          className={DoneTime ? 'active' : ''}
+          className={doneTime ? 'active' : ''}
           onClick={() => onClickStartTime('done')}
         >
           Erledigt
         </StyledButton>
         <StyledDiv>
           <div data-testid="div-test-start">{startTime}</div>
-          <div data-testid="div-test-arrival">{ArrivalTime}</div>
-          <div data-testid="div-test-done">{DoneTime}</div>
+          <div data-testid="div-test-arrival">{arrivalTime}</div>
+          <div data-testid="div-test-done">{doneTime}</div>
         </StyledDiv>
       </StyledStatusSection>
     </>
@@ -95,28 +95,3 @@ const StyledDiv = styled.div`
     border: 1px solid var(--secondary-grey-dark);
   }
 `
-
-/*
-<p> -------------------Joe Part ---------------------</p>
-
-      <table>
-        <tr>
-          <td>
-            <button onClick={() => setStartTime(getCurrentTime())}>
-              Start:
-            </button>
-            {startTime}
-          </td>
-          <td>
-            <button onClick={() => setArrivalTime(getCurrentTime())}>
-              Arrival:
-            </button>
-            {ArrivalTime}
-          </td>
-          <td>
-            <button onClick={() => setDoneTime(getCurrentTime())}>Done:</button>
-            {DoneTime}
-          </td>
-        </tr>
-      </table>
-      */
