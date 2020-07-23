@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import MemoList from '../components/MemoList'
 
-export default function MemoArea({ task, updateTaskList }) {
+export default function MemoForm({ task, updateTaskList }) {
   const [memo, setMemo] = useState('')
 
   useEffect(() => {
@@ -56,9 +56,6 @@ const StyledSection = styled.section`
   form {
     display: flex;
     flex-direction: column;
-
-    label {
-    }
 
     input {
       height: 50px;
