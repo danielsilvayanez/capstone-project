@@ -24,7 +24,6 @@ export default function MemoForm({ task, updateTaskList }) {
             type="text"
             minLength="3"
             placeholder="Bsp: CPU ausgetauscht"
-            autoFocus
             required
           />
           {memo.length <= 3 && (
@@ -60,6 +59,7 @@ const StyledSection = styled.section`
     input {
       height: 50px;
       width: 100%;
+      font-size: 1em;
     }
 
     button {
@@ -72,7 +72,6 @@ const StyledSection = styled.section`
 
     section {
       margin-top: 10px;
-      border: 1px solid black;
     }
   }
 `
@@ -80,8 +79,4 @@ const StyledError = styled.div`
   color: var(--tertiary);
   font-size: 0.8rem;
   font-weight: 300;
-`
-const StyledLi = styled.li`
-  word-wrap: break-word;
-  width: 10%px;
 `
