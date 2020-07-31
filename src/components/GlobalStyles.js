@@ -14,8 +14,9 @@ export default createGlobalStyle`
 }
 body {
   margin: 0;
-  height: 100vh;
+  
 }
+
 
 h1 {
 font-size: 24px;
