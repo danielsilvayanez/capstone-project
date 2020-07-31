@@ -38,12 +38,18 @@ function App() {
   return (
     <LoginContext.Provider value={{ user, firebaseApp }}>
       <AppGrid>
-        <Header currentDate={currentDate} />
+        <Header />
         <StyledMain>
           <Switch>
             <Route
               path="/dashboard"
-              component={() => <Dashboard user={user} tasks={taskList} />}
+              component={() => (
+                <Dashboard
+                  user={user}
+                  tasks={taskList}
+                  currentDate={currentDate}
+                />
+              )}
             />
             <Route path="/register" component={() => <Register />} />
             <Route path="/login" component={() => <Login />} />
