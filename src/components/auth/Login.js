@@ -1,71 +1,147 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
 import { useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import Modal from 'react-modal'
 
 export default function Login() {
   const userEmail = useRef(null)
   const userPassword = useRef(null)
   const history = useHistory()
+  const [modalIsOpen, setIsOpen] = useState(false)
+  const [errorCounter, setErrorCounter] = useState(0)
+  const initialValues = { email: '', password: '' }
 
-  //@ToDo- try and catch block
-  async function loginWithFirebase(email, password) {
-    await firebaseApp.signInWithEmailAndPassword(email, password)
-    return history.push('/dashboard')
+  function openModal() {
+    setIsOpen(true)
+    setErrorCounter(0)
   }
 
+  function closeModal() {
+    setIsOpen(false)
+    history.push('/login')
+  }
+
+  let loginSchema = yup.object().shape({
+    email: yup.string().email('Keine gültige E-Mail'),
+    password: yup.string().min(6, 'Bitte mindestens 6 Zeichen angeben'),
+  })
+
+  async function loginWithFirebase(email, password) {
+    try {
+      await firebaseApp.signInWithEmailAndPassword(email, password)
+      return history.push('/dashboard')
+    } catch (error) {
+      errorCounter > 4 ? openModal() : setErrorCounter(errorCounter + 1)
+    }
+  }
   return (
-    <StyledSection>
-      <h1>Herzlich Willkommen. Bitte melde Dich an! </h1>
-      <StyledForm
-        onSubmit={(event) => (
-          event.preventDefault(),
-          loginWithFirebase(userEmail.current.value, userPassword.current.value)
-        )}
-      >
+    <>
+      <StyledSection>
+        <h1>Herzlich willkommen. Bitte melde Dich an! </h1>
         <div>
-          <label htmlFor="user-email">E-Mail</label>
-          <input
-            htmlId="user-email"
-            name="user-email"
-            type="email"
-            ref={userEmail}
-          />
+          <StyledModal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+          >
+            <p>
+              Du hast 5 Mal die falschen Zugangsdaten eigegeben, hör mal auf
+              damit!
+            </p>
+            <button onClick={closeModal}>close</button>
+          </StyledModal>
         </div>
-        <div>
-          <label htmlFor="user-password">Password</label>
-          <input
-            htmlId="user-password"
-            name="user-password"
-            type="password"
-            ref={userPassword}
-          />
-        </div>
-        <div>
-          <button type="submit">Login</button>
-        </div>
-      </StyledForm>
-      <StyledDiv onClick={() => history.push('/register')}>
-        Noch kein Account? Jetzt registrieren{' '}
-      </StyledDiv>
-    </StyledSection>
+
+        <Formik
+          initialValues={initialValues}
+          validationSchema={loginSchema}
+          onSubmit={(values) =>
+            loginWithFirebase(values.email, values.password)
+          }
+        >
+          {({ isSubmitting, isValid, resetForm }) => (
+            <StyledForm>
+              <StyledField
+                name="email"
+                type="email"
+                placeholder="E-Mail eingeben"
+                ref={userEmail}
+                required
+              />
+              <StyledError>
+                <ErrorMessage name="email" />
+              </StyledError>
+              <StyledField
+                name="password"
+                type="password"
+                placeholder="Passwort eingeben"
+                ref={userPassword}
+                required
+              />
+              <StyledError>
+                <ErrorMessage name="password" />
+              </StyledError>
+              <button type="submit">login</button>
+            </StyledForm>
+          )}
+        </Formik>
+        <StyledDiv onClick={() => history.push('/register')}>
+          Noch kein Account? Jetzt registrieren
+        </StyledDiv>
+      </StyledSection>
+    </>
   )
 }
 
 const StyledSection = styled.section`
   padding: 10px;
   h1 {
-    color: black;
+    margin-top: 10px;
+    color: var(--secondary-grey-dark);
   }
 `
+const StyledModal = styled(Modal)`
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--primary-grey-mid);
+  color: var(--primary-white);
+  height: 60vh;
+  margin-top: 120px;
+
+  button {
+    margin-top: 5px;
+    background-color: var(--primary-white);
+    color: var(--secondary-grey-dark);
+    border-radius: 9px;
+    height: 50px;
+    width: 50%;
+  }
+`
+
+const StyledField = styled(Field)`
+  margin-top: 5px;
+`
+
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   cursor: pointer;
 `
+const StyledError = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 2px;
+  color: red;
+`
 
-const StyledForm = styled.form`
+const StyledForm = styled(Form)`
   padding: 10px;
   flex-direction: column;
 
