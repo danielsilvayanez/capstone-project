@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
 import { useHistory } from 'react-router-dom'
@@ -7,8 +7,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import Modal from 'react-modal'
 
 export default function Login() {
-  const userEmail = useRef(null)
-  const userPassword = useRef(null)
   const history = useHistory()
   const [modalIsOpen, setIsOpen] = useState(false)
   const [errorCounter, setErrorCounter] = useState(0)
@@ -47,10 +45,7 @@ export default function Login() {
             onRequestClose={closeModal}
             contentLabel="Example Modal"
           >
-            <p>
-              Du hast 5 Mal die falschen Zugangsdaten eigegeben, hör mal auf
-              damit!
-            </p>
+            <p>Es gibt ein Authentifierzungsproblem!</p>
             <button onClick={closeModal}>close</button>
           </StyledModal>
         </div>
@@ -68,7 +63,6 @@ export default function Login() {
                 name="email"
                 type="email"
                 placeholder="E-Mail eingeben"
-                ref={userEmail}
                 required
               />
               <StyledError>
@@ -78,13 +72,12 @@ export default function Login() {
                 name="password"
                 type="password"
                 placeholder="Passwort eingeben"
-                ref={userPassword}
                 required
               />
               <StyledError>
                 <ErrorMessage name="password" />
               </StyledError>
-              <button type="submit">login</button>
+              <StyledButton type="submit">login</StyledButton>
             </StyledForm>
           )}
         </Formik>
@@ -126,6 +119,10 @@ const StyledModal = styled(Modal)`
 
 const StyledField = styled(Field)`
   margin-top: 5px;
+  height: 50px;
+  width: 100%;
+  border-radius: 9px;
+  font-size: 1.6em;
 `
 
 const StyledDiv = styled.div`
@@ -144,19 +141,13 @@ const StyledError = styled.div`
 const StyledForm = styled(Form)`
   padding: 10px;
   flex-direction: column;
+`
 
-  input {
-    height: 50px;
-    width: 100%;
-    border-radius: 9px;
-    font-size: 1.6em;
-  }
-  button {
-    margin-top: 5px;
-    background-color: var(--primary-grey-mid);
-    color: var(--primary-white);
-    border-radius: 9px;
-    height: 50px;
-    width: 100%;
-  }
+const StyledButton = styled.button`
+  margin-top: 5px;
+  background-color: var(--primary-grey-mid);
+  color: var(--primary-white);
+  border-radius: 9px;
+  height: 50px;
+  width: 100%;
 `

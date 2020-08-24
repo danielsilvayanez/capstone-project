@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import MemoList from '../components/MemoList'
+import MemoList from '../MemoList/MemoList'
 
 export default function MemoForm({ task, updateTaskList }) {
   const [memo, setMemo] = useState('')

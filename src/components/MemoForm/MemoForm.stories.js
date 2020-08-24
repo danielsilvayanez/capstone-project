@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import MemoList from './MemoList'
-import GlobalStyles from './GlobalStyles'
+import MemoList from '../MemoList/MemoList'
+import GlobalStyles from '../GlobalStyles'
 import { addDecorator } from '@storybook/react'
 import MemoForm from './MemoForm'
 
