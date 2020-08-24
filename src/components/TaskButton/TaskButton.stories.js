@@ -1,6 +1,6 @@
 import React from 'react'
 import TaskButton from './TaskButton'
-import GlobalStyles from './GlobalStyles'
+import GlobalStyles from '../GlobalStyles'
 import { addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'

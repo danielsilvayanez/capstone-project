@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import tasks_mock from '../components/__mocks__/tasks_mock.json'
+import tasks_mock from '../__mocks__/tasks_mock.json'
 import TaskList from './TaskList'
 import userEvent from '@testing-library/user-event'
 

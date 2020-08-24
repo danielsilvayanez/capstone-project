@@ -74,8 +74,7 @@ const StyledButton = styled.button`
   width: 33.3%;
   height: 51px;
   background: var(--primary-white);
-  border: 1px solid var(--secondary-grey-dark);
-
+  border: 1px solid black;
   &.active {
     color: limegreen;
   }

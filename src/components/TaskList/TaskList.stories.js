@@ -1,5 +1,5 @@
 import React from 'react'
-import GlobalStyles from './GlobalStyles'
+import GlobalStyles from '../GlobalStyles'
 import { addDecorator } from '@storybook/react'
 import styled from 'styled-components'
 import TaskList from './TaskList'

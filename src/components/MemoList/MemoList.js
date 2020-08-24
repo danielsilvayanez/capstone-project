@@ -13,9 +13,17 @@ export default function MemoList({ task }) {
 }
 
 const StyledSection = styled.section`
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 5px;
+  padding: 5px;
   width: 100%;
   border: 1px solid var(--primary-grey-mid);
   border-radius: 9px;
+  box-shadow: -1px 5px 8px 0 rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+
+  li {
+    padding: 5px;
+    font-size: 1em;
+    word-wrap: break-word;
+  }
 `
