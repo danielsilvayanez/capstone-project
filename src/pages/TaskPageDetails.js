@@ -11,7 +11,7 @@ export default function TaskPageDetails({ tasks, updateTaskList }) {
 
   useEffect(() => {
     setTask(tasks.find((task) => task.call_number === callNumber))
-  }, [])
+  })
 
   return (
     <StyledDiv>

@@ -14,6 +14,7 @@ import LoginContext from './components/auth/loginContext'
 import firebaseApp from './firebase'
 import Logout from './components/auth/Logout'
 import UserBar from './components/auth/UserBar'
+import CalendarOverview from './components/Calendar/CalendarOverview'
 
 function App() {
   const user = useAuth()
@@ -54,6 +55,7 @@ function App() {
             <Route path="/register" component={() => <Register />} />
             <Route path="/login" component={() => <Login />} />
             <Route path="/logout" component={() => <Logout />} />
+            <Route path="/calendar" component={() => <CalendarOverview />} />
             <Route
               path="/taskpagedetails/:callNumber"
               component={() => (

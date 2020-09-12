@@ -26,11 +26,9 @@ export default function TaskList({ tasks, currentDate }) {
 
 const StyledUl = styled.ul`
   margin-top: 10px;
-  height: 100vh;
   width: 100%;
   list-style-type: none;
   padding: 0;
-  box-shadow: -1px 5px 8px 0 rgba(0, 0, 0, 0.5);
 
   h1 {
     margin-top: 20px;
