@@ -6,7 +6,6 @@ export function fetchTasks() {
     data.forEach((doc) => {
       TasksData.push(doc.data())
     })
-    // console.log(TasksData)
     return TasksData
   })
 }
