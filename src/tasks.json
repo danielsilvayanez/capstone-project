@@ -1,7 +1,7 @@
 [
   {
     "taskId": "1",
-    "call_number": "Call-Number1",
+    "auftragsnummer": "Call-Number1",
     "driver": "Will",
     "start": "",
     "arrival": "",
@@ -10,7 +10,7 @@
   },
   {
     "taskId": "2",
-    "call_number": "Call-Number2",
+    "auftragsnummer": "Call-Number2",
     "driver": "Will",
     "start": "",
     "arrival": "",
@@ -19,7 +19,7 @@
   },
   {
     "taskId": "3",
-    "call_number": "Call-Number3",
+    "auftragsnummer": "Call-Number3",
     "driver": "Will",
     "start": "",
     "arrival": "",
@@ -28,7 +28,7 @@
   },
   {
     "taskId": "4",
-    "call_number": "Call-Number4",
+    "auftragsnummer": "Call-Number4",
     "driver": "Will",
     "start": "",
     "arrival": "",
@@ -37,7 +37,7 @@
   },
   {
     "taskId": "5",
-    "call_number": "Call-Number5",
+    "auftragsnummer": "Call-Number5",
     "driver": "Will",
     "start": "",
     "arrival": "",

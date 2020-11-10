@@ -14,20 +14,28 @@ import LoginContext from './components/auth/loginContext'
 import firebaseApp from './firebase'
 import Logout from './components/auth/Logout'
 import UserBar from './components/auth/UserBar'
+import fetchTasks from './services/getTaskFromFirestore'
+import { useEffect } from 'react'
 
 function App() {
   const user = useAuth()
   const currentDate = dayjs().format('DD.MM.YYYY')
 
-  const [taskList, setTaskList] = useState(
-    JSON.parse(localStorage.getItem('tasklist')) || defaultTasks
-  )
+  const [taskList, setTaskList] = useState([])
+
+  //JSON.parse(localStorage.getItem('tasklist'))
+// setTimeout(function(){ console.log(cache)
+// ; }, 3000);
+useEffect(()=> {
+  setTaskList(fetchTasks());
+  console.log(taskList);
+},[taskList])
 
   function updateTaskList(task, callNumber) {
     if (task) {
       let list = [...taskList]
       const index = taskList.findIndex(
-        (task) => task.call_number === callNumber
+        (task) => task.auftragsnummer === callNumber
       )
       list[index] = task
       setTaskList(list)
@@ -44,7 +52,7 @@ function App() {
             <Route
               path="/dashboard"
               component={() => (
-                <Dashboard
+                 <Dashboard
                   user={user}
                   tasks={taskList}
                   currentDate={currentDate}

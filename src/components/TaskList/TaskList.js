@@ -10,10 +10,10 @@ export default function TaskList({ tasks, currentDate }) {
     <StyledUl>
       <h1>{currentDate}</h1>
       {tasks.map((task) => (
-        <li key={task.call_number} data-testid="call_number-test">
+        <li key={task.auftragsnummer} data-testid="call_number-test">
           <TaskButton
-            onClick={() => setPathTo(`/taskpagedetails/${task.call_number}`)}
-            btnText={task.call_number}
+            onClick={() => setPathTo(`/taskpagedetails/${task.auftragsnummer}`)}
+            btnText={task.auftragsnummer}
           />
         </li>
       ))}
