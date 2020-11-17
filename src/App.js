@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header/Header'
 import Dashboard from './pages/Dashboard'
 import TaskPageDetails from './/pages/TaskPageDetails'
@@ -15,7 +15,6 @@ import firebaseApp from './firebase'
 import Logout from './components/auth/Logout'
 import UserBar from './components/auth/UserBar'
 import fetchTasks from './services/getTaskFromFirestore'
-import { useEffect } from 'react'
 
 function App() {
   const user = useAuth()
@@ -23,13 +22,12 @@ function App() {
 
   const [taskList, setTaskList] = useState([])
 
-  //JSON.parse(localStorage.getItem('tasklist'))
-// setTimeout(function(){ console.log(cache)
-// ; }, 3000);
-useEffect(()=> {
-  setTaskList(fetchTasks());
-  console.log(taskList);
-},[taskList])
+  useEffect(() => {
+    fetchTasks().then((dbResult) => {
+      console.log({ dbResult })
+      setTaskList(dbResult)
+    })
+  }, [])
 
   function updateTaskList(task, callNumber) {
     if (task) {
@@ -52,9 +50,9 @@ useEffect(()=> {
             <Route
               path="/dashboard"
               component={() => (
-                 <Dashboard
+                <Dashboard
                   user={user}
-                  tasks={taskList}
+                  tasks={defaultTasks}
                   currentDate={currentDate}
                 />
               )}
