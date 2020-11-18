@@ -10,8 +10,12 @@ export default function TaskPageDetails({ tasks, updateTaskList }) {
   const [task, setTask] = useState(null)
 
   useEffect(() => {
-    setTask(tasks.find((task) => task.call_number === callNumber))
+    setTask(tasks.find((task) => task.auftragsnummer === callNumber))
   }, [])
+
+  useEffect(() => {
+    console.log('taskPageDetails -->' + task)
+  }, [task])
 
   return (
     <StyledDiv>

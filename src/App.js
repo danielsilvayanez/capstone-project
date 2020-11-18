@@ -47,16 +47,6 @@ function App() {
         <Header />
         <StyledMain>
           <Switch>
-            <Route
-              path="/dashboard"
-              component={() => (
-                <Dashboard
-                  user={user}
-                  tasks={defaultTasks}
-                  currentDate={currentDate}
-                />
-              )}
-            />
             <Route path="/register" component={() => <Register />} />
             <Route path="/login" component={() => <Login />} />
             <Route path="/logout" component={() => <Logout />} />
@@ -72,7 +62,13 @@ function App() {
             <Route
               exact
               path="/"
-              component={() => <Dashboard user={user} tasks={taskList} />}
+              component={() => (
+                <Dashboard
+                  user={user}
+                  tasks={taskList}
+                  currentDate={currentDate}
+                />
+              )}
             />
             <Route component={NotFound} />
           </Switch>

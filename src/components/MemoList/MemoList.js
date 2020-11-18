@@ -6,7 +6,7 @@ export default function MemoList({ task }) {
     <StyledSection>
       <p>Notizen</p>
       <ul>
-        {task && task.memos.map((memo, index) => <li key={index}>{memo}</li>)}
+        {task && task.notiz.map((memo, index) => <li key={index}>{memo}</li>)}
       </ul>
     </StyledSection>
   )

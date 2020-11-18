@@ -7,11 +7,13 @@ export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
   const [arrivalTime, setArrivalTime] = useState('')
   const [doneTime, setDoneTime] = useState('')
 
+  // console.log('task-->' + task)
+
   useEffect(() => {
     if (task) {
       setStartTime(task.start)
-      setArrivalTime(task.arrival)
-      setDoneTime(task.done)
+      setArrivalTime(task.ankunft)
+      setDoneTime(task.erledigt)
     }
   }, [task])
 

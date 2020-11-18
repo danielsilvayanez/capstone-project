@@ -18,7 +18,7 @@ export default function UserBar() {
     <section>
       {user && (
         <>
-          {location.pathname !== '/dashboard' && (
+          {location.pathname !== '/' && (
             <nav onClick={() => history.goBack()}>
               <StyledBackArrow />
             </nav>

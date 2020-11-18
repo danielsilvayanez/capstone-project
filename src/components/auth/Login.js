@@ -30,7 +30,7 @@ export default function Login() {
   async function loginWithFirebase(email, password) {
     try {
       await firebaseApp.signInWithEmailAndPassword(email, password)
-      return history.push('/dashboard')
+      return history.push('/')
     } catch (error) {
       errorCounter > 4 ? openModal() : setErrorCounter(errorCounter + 1)
     }

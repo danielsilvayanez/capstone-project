@@ -7,7 +7,7 @@ export default function MemoForm({ task, updateTaskList }) {
 
   useEffect(() => {
     if (task) {
-      setMemo(task.memos)
+      setMemo(task.notiz)
     }
   }, [task])
 
