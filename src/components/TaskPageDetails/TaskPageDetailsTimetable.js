@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
+import { updateTask } from '../../services/updateTaskToFirestore'
 
 export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
   const [startTime, setStartTime] = useState('')
   const [arrivalTime, setArrivalTime] = useState('')
   const [doneTime, setDoneTime] = useState('')
-
-  // console.log('task-->' + task)
 
   useEffect(() => {
     if (task) {
@@ -31,7 +30,9 @@ export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
       setDoneTime(time)
     }
     const newTask = { ...task, [status]: time }
-    updateTaskList(newTask, task.call_number)
+    console.log('----> new task' + newTask)
+    updateTask(task._id, newTask)
+    updateTaskList(newTask, task.auftragsnummer, task._id)
   }
 
   return (
@@ -47,14 +48,14 @@ export default function TaskPageDetailsTimetable({ task, updateTaskList }) {
         <StyledButton
           data-testid="button-test-arrival"
           className={arrivalTime ? 'active' : ''}
-          onClick={() => onClickStartTime('arrival')}
+          onClick={() => onClickStartTime('ankunft')}
         >
           Ankunft
         </StyledButton>
         <StyledButton
           data-testid="button-test-done"
           className={doneTime ? 'active' : ''}
-          onClick={() => onClickStartTime('done')}
+          onClick={() => onClickStartTime('erledigt')}
         >
           Erledigt
         </StyledButton>

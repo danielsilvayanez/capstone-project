@@ -29,7 +29,7 @@ function App() {
     })
   }, [])
 
-  function updateTaskList(task, callNumber) {
+  function updateTaskList(task, callNumber, taskId) {
     if (task) {
       let list = [...taskList]
       const index = taskList.findIndex(
@@ -37,7 +37,7 @@ function App() {
       )
       list[index] = task
       setTaskList(list)
-      localStorage.setItem('tasklist', JSON.stringify(list))
+      // localStorage.setItem('tasklist', JSON.stringify(list))
     }
   }
 
