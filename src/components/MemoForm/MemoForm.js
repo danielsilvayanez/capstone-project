@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MemoList from '../MemoList/MemoList'
 
 export default function MemoForm({ task, updateTaskList }) {
-  const [memo, setMemo] = useState('')
+  const [memo, setMemo] = useState([])
 
   useEffect(() => {
     if (task) {
@@ -40,9 +40,9 @@ export default function MemoForm({ task, updateTaskList }) {
     event.preventDefault()
     const tempMemo = event.target.memo.value
     setMemo(tempMemo)
-    const newMemos = [...task.memos, tempMemo]
-    const newTask = { ...task, memos: newMemos }
-    updateTaskList(newTask, task.call_number)
+    const newMemos = [...task.notiz, tempMemo]
+    const newTask = { ...task, notiz: newMemos }
+    updateTaskList(newTask, task.auftragsnummer)
     event.target.memo.value = ''
   }
 }
